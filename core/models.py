@@ -7,6 +7,7 @@ class Category(models.Model):
 
 
 class Institution(models.Model):
+
     FOUNDATION = 'F'
     NON_GOVERNMENTAL = 'NG'
     LOCAL_COLLECTION = 'LC'
@@ -22,6 +23,9 @@ class Institution(models.Model):
     type_of_institution = models.CharField(max_length=2, choices=TYPE_CHOICES, default=FOUNDATION)
     categories = models.ManyToManyField(Category)
 
+    def __str__(self):
+        return self.name
+
 
 class Donation(models.Model):
     quantity = models.IntegerField()
@@ -35,5 +39,5 @@ class Donation(models.Model):
     pick_up_time = models.TimeField()
     pick_up_comment = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=None)
-
+    is_taken = models.BooleanField(default=False)
 

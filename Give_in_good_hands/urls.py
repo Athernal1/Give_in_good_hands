@@ -23,5 +23,8 @@ urlpatterns = [
     path('add-donation/', views.AddDonation.as_view()),
     path('login/', views.Login.as_view()),
     path('register/', views.Register.as_view()),
+    path('logout/', views.Logout.as_view()),
+    path('confirmation/', views.Confirmation.as_view()),
+    path('profile/', views.Profile.as_view()),
 
 ]
